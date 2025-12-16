@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بترول الشرق - قوة الطاقة للمستقبل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        :root {
+            --primary: #0066cc;
+            --secondary: #003366;
+            --accent: #ff9900;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* الشريط العلوي */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            margin-left: 10px;
+            color: var(--accent);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* قسم البطل */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 102, 204, 0.8)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #e68a00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* قسم الإحصائيات */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        /* قسم المشاريع */
+        .projects {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        /* قسم اتصل بنا */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-left: 10px;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* تأثيرات الحركة */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-oil-well"></i>
+                <h1>بترول الشرق</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#projects">مشاريعنا</a></li>
+                    <li><a href="#about">عن الشركة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>قوة الطاقة للمستقبل المستدام</h2>
+            <p>نقدم حلولاً متكاملة في مجال الطاقة والموارد البترولية مع الالتزام بأعلى معايير الجودة والاستدامة البيئية لبناء مستقبل أفضل للأجيال القادمة.</p>
+            <a href="#contact" class="btn">اتصل بنا اليوم</a>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا</h2>
+                <p>نقدم مجموعة متكاملة من الخدمات البترولية والطاقية التي تغطي كافة مراحل سلسلة القيمة في صناعة النفط والغاز.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>استكشاف واستخراج النفط</h3>
+                    <p>تقنيات متقدمة للاستكشاف والتنقيب عن النفط والغاز باستخدام أحدث المعدات والتقنيات الجيوفيزيائية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>النقل والتخزين</h3>
+                    <p>شبكة متكاملة من النقل الآمن للنفط عبر الأنابيب والناقلات مع مرافق تخزين عالية الجودة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>التكرير والمعالجة</h3>
+                    <p>تحويل النفط الخام إلى منتجات بترولية عالية الجودة تلبي احتياجات السوق المحلي والعالمي.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>الطاقة المتجددة</h3>
+                    <p>استثمارات في مجال الطاقة المتجددة والبديلة لتقليل البصمة الكربونية والمحافظة على البيئة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>سنة من الخبرة</p>
+                </div>
+                <div class="stat-item">
+                    <h3>800+</h3>
+                    <p>مشروع ناجح</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40+</h3>
+                    <p>دولة نعمل بها</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5000+</h3>
+                    <p>موظف حول العالم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>مشاريعنا</h2>
+                <p>إليكم بعض المشاريع البارزة التي نفخر بها والتي تعكس خبرتنا الواسعة في صناعة النفط والغاز.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9tIIhYX9DTR24hR3ndDsqHNVsR7T6nx7IoA&s" alt="منصة نفطية بحرية متطورة مع معدات حديثة وعمال متخصصين">
+                    </div>
+                    <div class="project-content">
+                        <h3>منصة الاستخراج البحري</h3>
+                        <p>منصة متطورة لاستخراج النفط في الخليج العربي باستخدام أحدث التقنيات العالمية.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://modo3.com/thumbs/fit630x300/27139/1434010755/%D8%AE%D8%B7%D9%88%D8%A7%D8%AA_%D8%AA%D9%83%D8%B1%D9%8A%D8%B1_%D8%A7%D9%84%D9%86%D9%81%D8%B7.jpg" alt="مركز تكرير حديث مع أبراج التقطير وخطوط الأنابيب المعقدة">
+                    </div>
+                    <div class="project-content">
+                        <h3>مصفاة النفط الجديدة</h3>
+                        <p>إنشاء وتشغيل مصفاة متطورة بطاقة إنتاجية عالية وتقنيات معالجة صديقة للبيئة.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://saudipedia.com/saudipedia/uploads/images/2023/11/30/83028.jpg" alt="محطة طاقة شمسية واسعة مع ألواح شمسية تمتد إلى الأفق">
+                    </div>
+                    <div class="project-content">
+                        <h3>مشروع الطاقة الشمسية</h3>
+                        <p>أكبر مشروع للطاقة الشمسية في المنطقة لتوليد الطاقة النظيفة والمستدامة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم اتصل بنا -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>اتصل بنا</h2>
+                <p>نحن هنا للإجابة على استفساراتكم وتقديم الدعم الذي تحتاجونه في مجال الطاقة والبترول.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone"></i> +966 11 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@petroleum.com</p>
+                    <p><i class="fas fa-clock"></i> من الأحد إلى الخميس: 8 صباحاً - 5 مساءً</p>
+                </div>
+                <div class="contact-form">
+                    <h3>أرسل رسالة</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>بترول الشرق</h3>
+                    <p>شركة رائدة في مجال الطاقة تقدم حلولاً متكاملة وخدمات عالية الجودة في قطاع النفط والغاز.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <p><a href="#home">الرئيسية</a></p>
+                    <p><a href="#services">خدماتنا</a></p>
+                    <p><a href="#projects">مشاريعنا</a></p>
+                    <p><a href="#about">عن الشركة</a></p>
+                    <p><a href="#contact">اتصل بنا</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>الخدمات</h3>
+                    <p>استكشاف واستخراج النفط</p>
+                    <p>النقل والتخزين</p>
+                    <p>التكرير والمعالجة</p>
+                    <p>الطاقة المتجددة</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 بترول الشرق. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // التأكد من تحميل الصفحة أولاً
+        document.addEventListener('DOMContentLoaded', function() {
+            // تأثير التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // نموذج الاتصال
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // في حالة حقيقية، هنا سيتم إرسال البيانات إلى الخادم
+                    alert('شكراً لتواصلكم معنا! سنرد عليكم في أقرب وقت ممكن.');
+                    contactForm.reset();
+                });
+            }
+            
+            // إضافة تأثيرات عند التمرير
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.service-card, .project-card, .stat-item');
+                
+                elements.forEach(element => {
+                    const position = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (position < screenPosition) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // تهيئة العناصر لإظهار تأثير التمرير
+            document.querySelectorAll('.service-card, .project-card, .stat-item').forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // تفعيل تأثير التمرير
+            window.addEventListener('scroll', animateOnScroll);
+            // تشغيل مرة أولى لإظهار العناصر المرئية
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
